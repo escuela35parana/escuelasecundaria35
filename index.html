@@ -22,7 +22,14 @@ nav {
     z-index: 1000;
     display: none; 
 }
+nav {
+    opacity: 0;
+    transition: opacity 0.5s;
+}
 
+nav.visible {
+    opacity: 1;
+}
 .menu {
     list-style: none;
     display: flex;
@@ -179,7 +186,7 @@ html {
 .redes-flotantes {
     position: fixed;
     bottom: 20px;
-    right: 20px;
+    left: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -263,9 +270,9 @@ window.addEventListener("scroll", function() {
   const nav = document.querySelector("nav");
   
   if (window.scrollY > 100) {
-    nav.style.display = "block";
+    nav.classList.add("visible");
   } else {
-    nav.style.display = "none";
+    nav.classList.remove("visible");
   }
 });
 </script>
