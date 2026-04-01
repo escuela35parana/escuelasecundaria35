@@ -174,7 +174,20 @@ html {
 .galeria-grid img {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+<button onclick="mostrar('eventos')">Eventos</button>
+<button onclick="mostrar('alumnos')">Alumnos</button>
+<button onclick="mostrar('actos')">Actos</button>
 
+<div id="eventos" class="galeria">...</div>
+<div id="alumnos" class="galeria" style="display:none;">...</div>
+<div id="actos" class="galeria" style="display:none;">...</div>
+
+<script>
+function mostrar(seccion) {
+  document.querySelectorAll('.galeria').forEach(g => g.style.display = 'none');
+  document.getElementById(seccion).style.display = 'grid';
+}
+</script>
 
 /* BOTONES FLOTANTES */
 .redes-flotantes {
