@@ -11,17 +11,16 @@
 body {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    padding-top: 70px;
 }
 
 /* 🔝 MENÚ */
 nav {
-    position: fixed;
-    top: 0;
+    position: relative;
     width: 100%;
     background-color: rgba(0,0,0,0.7);
     backdrop-filter: blur(5px);
     z-index: 1000;
+    display: none; 
 }
 
 .menu {
@@ -258,7 +257,17 @@ html {
 </style>
 
 </head>
-
+<script>
+window.addEventListener("scroll", function() {
+  const nav = document.querySelector("nav");
+  
+  if (window.scrollY > 100) {
+    nav.style.display = "block";
+  } else {
+    nav.style.display = "none";
+  }
+});
+</script>
 <body>
 
 <!-- 🔝 MENÚ -->
