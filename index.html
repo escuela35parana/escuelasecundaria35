@@ -15,20 +15,19 @@ body {
 
 /* 🔝 MENÚ */
 nav {
-    position: relative;
+    position: fixed; /* mejor experiencia */
+    top: 0;
     width: 100%;
     background-color: rgba(0,0,0,0.7);
     backdrop-filter: blur(5px);
     z-index: 1000;
-    display: none; 
-}
-nav {
-    opacity: 0;
+
+    opacity: 0; /* oculto */
     transition: opacity 0.5s;
 }
 
 nav.visible {
-    opacity: 1;
+    opacity: 1; /* aparece */
 }
 .menu {
     list-style: none;
@@ -265,7 +264,7 @@ html {
 
 </head>
 </section>
-  <script>
+ <script>
 window.addEventListener("scroll", function() {
   const nav = document.querySelector("nav");
   
