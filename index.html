@@ -134,7 +134,9 @@ html {
   height: 100%;
   border: 0;
 }
-
+.seccion {
+    display: none;
+}
 
 .seccion {
     padding: 80px 20px;
@@ -179,7 +181,9 @@ html {
 .galeria-grid img {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
-
+.activa {
+    display: block;
+}
 
 /* BOTONES FLOTANTES */
 .redes-flotantes {
@@ -276,26 +280,40 @@ window.addEventListener("scroll", function() {
   }
 });
 </script>
+
+  <script>
+function mostrarSeccion(id) {
+  // ocultar todas
+  document.querySelectorAll('.seccion, .portada').forEach(sec => {
+    sec.classList.remove('activa');
+  });
+
+  // mostrar la seleccionada
+  document.getElementById(id).classList.add('activa');
+
+  // scroll arriba
+  window.scrollTo(0, 0);
+}
+</script>
 <body>
 
 <!-- 🔝 MENÚ -->
 <nav>
     <ul class="menu">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#historia">Historia</a></li>
-        <li><a href="#equipodirectivo">Equipo Directivo</a></li>
-        <li><a href="#noticias">Noticias</a></li>
-        <li><a href="#repositorio">Repositorio Escolar</a></li>
-        <li><a href="#galeria">Galería</a></li>
-        <li><a href="#ubicacion">Ubicación</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-
+       <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+      <li><a href="#" onclick="mostrarSeccion('historia')">Historia</a></li>
+<li><a href="#" onclick="mostrarSeccion('equipodirectivo')">Equipo Directivo</a></li>
+<li><a href="#" onclick="mostrarSeccion('noticias')">Noticias</a></li>
+<li><a href="#" onclick="mostrarSeccion('repositorio')">Repositorio</a></li>
+<li><a href="#" onclick="mostrarSeccion('galeria')">Galería</a></li>
+<li><a href="#" onclick="mostrarSeccion('ubicacion')">Ubicación</a></li>
+<li><a href="#" onclick="mostrarSeccion('contacto')">Contacto</a></li>
         
     </ul>
 </nav>
 
 <!-- 🖼️ PORTADA -->
-<section id="inicio" class="portada">
+<section id="inicio" class="portada activa">
     <h1 class="titulo">Escuela Secundaria N°35 "Cesáreo Bernaldo de Quirós"</h1>
 </section>
 
