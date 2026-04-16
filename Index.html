@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Escuela Secundaria N°35 "Cesáreo Bernaldo de Quirós"</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- ICONOS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+nav {
+    background: #1e2a38;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+}
+
+.logo { font-weight: 700; }
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu a:hover { color: #00c3ff; }
+
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+}
+
+.seccion {
+    min-height: 100vh;
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.portada {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("portada.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.titulo {
+    color: white;
+    font-size: 42px;
+}
+
+h2 {
+    border-left: 5px solid #00c3ff;
+    padding-left: 10px;
+}
+
+.card {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.carpetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.carpeta {
+    padding: 30px;
+    background: #2c3e50;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.carpeta:hover { background: #00c3ff; }
+
+.btn-repo {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #2c3e50;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.btn-repo:hover { background: #00c3ff; }
+
+.formulario {
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.formulario input,
+.formulario textarea { padding: 10px; }
+
+.formulario button {
+    padding: 12px;
+    background: #1e2a38;
+    color: white;
+    border: none;
+}
+
+.formulario button:hover { background: #00c3ff; }
+
+.redes { text-align: center; margin-top: 20px; }
+
+.redes a {
+    font-size: 24px;
+    margin: 10px;
+    color: #1e2a38;
+}
+
+.redes-fijas {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.redes-fijas a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+/* Colores por red */
+.redes-fijas .whatsapp { background: #25D366; }
+.redes-fijas .facebook { background: #1877F2; }
+.redes-fijas .instagram { background: #E4405F; }
+.redes-fijas .perfil { background: #555; }
+
+@media (max-width:768px){
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #1e2a38;
+    }
+
+    .menu.active { display: flex; }
+
+    .menu-toggle { display: block; }
+
+    .titulo { font-size: 26px; }
+}
+
+
+/* NOTICIAS */
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.noticia {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.noticia:hover {
+    transform: translateY(-5px);
+}
+
+.noticia img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.noticia .fecha {
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 10px;
+}
+
+.btn-noticia {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background: #1e2a38;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.btn-noticia:hover {
+    background: #00c3ff;
+}
+
+section {
+    scroll-margin-top: 70px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">Escuela Secundaria N°35 "Cesáreo Bernaldo de Quirós"</div>
+    <button class="menu-toggle">☰</button>
+
+    <ul class="menu">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#historia">Historia</a></li>
+    <li><a href="#equipo">Comunidad Educativa</a></li>
+    <li><a href="#noticias">Noticias</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#repositorio">Repositorio</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#ubicacion">Ubicación</a></li>
+</ul>
+</nav>
+
+<section id="inicio" class="portada">
+    <h1 class="titulo">Escuela Secundaria N°35<br>"Cesáreo Bernaldo de Quirós"</h1>
+</section>
+
+<!-- HISTORIA -->
+<section id="historia" class="seccion">
+    <h2>Historia</h2>
+    <div class="card">
+        <p style="text-align: justify;">
+        La institución fue creada en 1989 como Colegio Nacional Nº 2 de Paraná para dar respuesta a jóvenes que quedaban fuera del sistema educativo en un contexto en el que la escuela secundaria aún no era obligatoria. Con el compromiso de docentes y la comunidad educativa, se fue consolidando como una escuela inclusiva. 
+        Inicialmente funcionó en el Instituto del Profesorado de Paraná (Escuela Normal), ubicado en la intersección de las calles Corrientes y Urquiza. En el año 1991, se solicitó el cambio de nombre a “Cesáreo Bernaldo de Quirós”, propuesta impulsada por la comunidad educativa y aprobada a nivel nacional, en reconocimiento al destacado pintor entrerriano. Este acontecimiento dio lugar a diversas actividades culturales y educativas que pusieron en valor su vida y obra.
+        Actualmente, la institución se encuentra en el edificio del ex Ferrocarril General Urquiza, ubicado en calle Racedo al 170, revalorizando así un espacio histórico de la ciudad. A partir de la obligatoriedad de la escuela secundaria establecida por la Ley Nacional de Educación Nº 26.206, la escuela asumió nuevos desafíos, reafirmando su compromiso con una educación pública, inclusiva y de calidad, orientada a garantizar el acceso, la permanencia y el egreso de todos los estudiantes.
+
+        </p>
+    </div>
+</section>
+
+<!-- EQUIPO -->
+<section id="equipo" class="seccion">
+    <h2>Comunidad Educativa</h2>
+    <div class="card">
+        <p><b>Rectora:</b> Ramos Blanco, Belén.</p>
+        <p><b>Secretaria:</b> Vega, Viviana.</p>
+        <p><b>Administrativos:</b> Mendoza, Gustavo; Santini, Lautaro.</p>
+        <p><b>Asesoría Pedagógica:</b> Henares, Soledad.</p>
+        <p><b>Equipo de Orientación:</b> Badaracco, Luna; Gipler, Noelia. </p>
+        <p><b>Bibliotecario:</b> Kuhn, Juan.</p>
+        <p><b>Preceptores:</b> Basavilbaso, Marisol; Grinovero, Norma; Moreyra, Nicolás; Marina, Raminger.</p>
+        <p><b>Referente Técnico:</b> Giménez, Greta.</p>
+    </div>
+</section>
+
+<!-- NOTICIAS -->
+<section id="noticias" class="seccion">
+    <h2>Noticias</h2>
+
+    <div class="noticias-grid">
+
+        <div class="noticia">
+            <div class="fecha">16/04/2026</div>
+            <h3>Jornada institucional</h3>
+            <p style="text-align: justify;"> 
+            Se informa a la comunidad educativa que el día miércoles 22 de abril se llevarán a cabo las Jornadas Institucionales en el establecimiento. Por tal motivo, los alumnos no deberán asistir a la institución durante esa jornada. Las actividades escolares se retomarán con normalidad el día siguiente, en los horarios habituales. Agradecemos la comprensión y acompañamiento de las familias.</p>
+        </div>
+
+        <div class="noticia">
+            <div class="fecha">01/04/2026</div>
+            <h3>Mesas de Examen Turno Abril</h3>
+            <p style="text-align: justify;"> 
+                Se informa a los alumnos que han finalizado el cursado que se están llevando a cabo las mesas de examen correspondientes al turno abril, desde el día 07 al 10 del corriente mes. Se solicita a los estudiantes inscriptos presentarse en la fecha y horario asignados, con la documentación correspondiente.
+                Ante cualquier duda, podrán comunicarse con la institución.</p>  
+        </div>
+
+        <div class="noticia">  
+            <div class="fecha">27/03/2026</div>
+            <h3>Inscripción a Mesas de Examen Turno Abril</h3>
+            <p style="text-align: justify;">
+                Se informa a los alumnos que han finalizado el cursado que la inscripción a las mesas de examen del turno abril se realizará los días 30 y 31 de marzo, en el horario de 8:00 a 12:00 hs, en preceptoría. Para completar la inscripción, deberán presentarse con DNI. Ante cualquier duda, podrán acercarse a la institución. </p>
+            
+        </div>
+
+    </div>
+</section>
+
+<section id="galeria" class="seccion"> 
+    <h2>Galería</h2>
+    <div class="carpetas">
+        <a href="#memoria.html" class="carpeta"><i class="fa-solid fa-folder"></i><br>Memoria, Verdad y Justicia</a>
+        <a href="#" class="carpeta"><i class="fa-solid fa-folder"></i><br>Malvinas</a>
+        <a href="#" class="carpeta"><i class="fa-solid fa-folder"></i><br>Feria Ciencias</a>
+    </div>
+</section>
+
+
+<section id="repositorio" class="seccion">
+    <h2>Repositorio Escolar</h2>
+    <a href="https://drive.google.com/drive/folders/1xw3caibvhziu4QQYmYYNeTkz0MZ4_CGS?usp=sharing" class="btn-repo">Ir al repositorio</a>
+</section>
+
+<!-- UBICACION -->
+<section id="ubicacion" class="seccion">
+    <h2>Ubicación</h2>
+    <div class="card">
+        <p>Nos encontramos en calle Racedo 170, Paraná.</p>
+        <div style="position:relative;width:100%;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;">
+            <iframe src="https://www.google.com/maps?q=Racedo+170+Parana&output=embed" 
+            style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" 
+            allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<section id="contacto" class="seccion">
+    <h2>Contacto</h2>
+
+    <form class="formulario" action="https://formspree.io/f/mbdpoynl" method="POST">
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="email" placeholder="Correo" required>
+        <textarea name="mensaje" placeholder="Mensaje" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+
+    
+   <div class="redes-fijas">
+
+    <!-- WhatsApp -->
+    <a href="https://wa.me/5493434389456" target="_blank" class="whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Facebook Página -->
+    <a href="https://www.facebook.com/CesareoB.dequiros" target="_blank" class="facebook">
+        <i class="fab fa-facebook"></i>
+    </a>
+
+    <!-- Facebook Perfil -->
+    <a href="https://www.facebook.com/profile.php?id=61565196789281" target="_blank" class="perfil">
+        <i class="fas fa-user"></i>
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/cesareob.dequiros/" target="_blank" class="instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+</div>
+
+
+<script>
+const toggle = document.querySelector(".menu-toggle");
+const menu = document.querySelector(".menu");
+
+toggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
+});
+const links = document.querySelectorAll(".menu a");
+
+links.forEach(link => {
+    link.addEventListener("click", () => {
+        menu.classList.remove("active");
+    });
+});
+</script>
+
+
+</body>
+</html>
