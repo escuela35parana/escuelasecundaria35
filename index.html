@@ -57,7 +57,14 @@ nav {
     max-width: 1000px;
     margin: auto;
 }
+.seccion {
+  display: none;
+}
 
+.seccion.activa {
+  display: block;
+}
+    
 .portada {
     height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("portada.jpg");
@@ -458,7 +465,46 @@ links.forEach(link => {
     });
 });
 </script>
+<script>
+const toggle = document.querySelector(".menu-toggle");
+const menu = document.querySelector(".menu");
 
+toggle.addEventListener("click", () => {
+    menu.classList.toggle("active");
+});
+
+// Seleccionar todas las secciones menos inicio
+const secciones = document.querySelectorAll(".seccion");
+
+// Ocultar todas al inicio
+secciones.forEach(sec => sec.style.display = "none");
+
+const links = document.querySelectorAll(".menu a");
+
+links.forEach(link => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        // Cerrar menú en celular
+        menu.classList.remove("active");
+
+        // Ocultar todas las secciones
+        secciones.forEach(sec => sec.style.display = "none");
+
+        // Obtener destino
+        const id = link.getAttribute("href").substring(1);
+
+        // Mostrar sección seleccionada
+        if(id === "inicio"){
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+            const destino = document.getElementById(id);
+            destino.style.display = "block";
+            destino.scrollIntoView({ behavior: "smooth" });
+        }
+    });
+});
+</script>
 
 </body>
 </html>
