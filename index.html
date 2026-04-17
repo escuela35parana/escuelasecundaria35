@@ -322,7 +322,7 @@ img {
 </section>
 
 <!-- HISTORIA -->
-<section id="historia" class="seccion">
+<section id="historia" class="seccion activa">
     <h2>Historia</h2>
     <div class="card">
         <p style="text-align: justify;">
@@ -335,7 +335,7 @@ img {
 </section>
 
 <!-- EQUIPO -->
-<section id="equipo" class="seccion">
+<section id="equipo" class="seccion activa">
     <h2>Comunidad Educativa</h2>
     <div class="card">
         <p><b>Rectora:</b> Ramos Blanco, Belén.</p>
@@ -350,7 +350,7 @@ img {
 </section>
 
 <!-- NOTICIAS -->
-<section id="noticias" class="seccion">
+<section id="noticias" class="seccion activa">
     <h2>Noticias</h2>
 
     <div class="noticias-grid">
@@ -382,7 +382,7 @@ img {
 </section>
 
 <!-- GALERIA --> 
-    <section id="galeria" class="seccion">
+    <section id="galeria" class="seccion activa">
   <h2>Galería</h2>
 
   <div class="carpetas">
@@ -396,13 +396,13 @@ img {
         </section>
     
 <!-- REPOSITORIO -->    
-<section id="repositorio" class="seccion">
+<section id="repositorio" class="seccion activa">
     <h2>Repositorio Escolar</h2>
     <a href="https://drive.google.com/drive/folders/1xw3caibvhziu4QQYmYYNeTkz0MZ4_CGS?usp=sharing" class="btn-repo">Ir al repositorio</a>
 </section>
 
 <!-- UBICACION -->
-<section id="ubicacion" class="seccion">
+<section id="ubicacion" class="seccion activa">
     <h2>Ubicación</h2>
     <div class="card">
         <p>Nos encontramos en calle Racedo 170, Paraná.</p>
@@ -414,7 +414,9 @@ img {
     </div>
 </section>
 
-<section id="contacto" class="seccion">
+
+   <!-- CONTACTO --> 
+<section id="contacto" class="seccion activa">
     <h2>Contacto</h2>
 
     <form class="formulario" action="https://formspree.io/f/mbdpoynl" method="POST">
@@ -424,7 +426,7 @@ img {
         <button type="submit">Enviar</button>
     </form>
 
-    
+      <!-- REDES --> 
    <div class="redes-fijas">
 
     <!-- WhatsApp -->
@@ -454,31 +456,18 @@ img {
 const toggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".menu");
 
-toggle.addEventListener("click", () => {
-    menu.classList.toggle("active");
-});
-const links = document.querySelectorAll(".menu a");
-
-links.forEach(link => {
-    link.addEventListener("click", () => {
-        menu.classList.remove("active");
-    });
-});
-</script>
-<script>
-const toggle = document.querySelector(".menu-toggle");
-const menu = document.querySelector(".menu");
-
+// Botón hamburguesa
 toggle.addEventListener("click", () => {
     menu.classList.toggle("active");
 });
 
-// Seleccionar todas las secciones menos inicio
+// Seleccionar secciones
 const secciones = document.querySelectorAll(".seccion");
 
-// Ocultar todas al inicio
-secciones.forEach(sec => sec.style.display = "none");
+// Ocultar todas menos inicio
+secciones.forEach(sec => sec.classList.remove("activa"));
 
+// Links del menú
 const links = document.querySelectorAll(".menu a");
 
 links.forEach(link => {
@@ -488,23 +477,20 @@ links.forEach(link => {
         // Cerrar menú en celular
         menu.classList.remove("active");
 
-        // Ocultar todas las secciones
-        secciones.forEach(sec => sec.style.display = "none");
+        // Ocultar todas
+        secciones.forEach(sec => sec.classList.remove("activa"));
 
-        // Obtener destino
         const id = link.getAttribute("href").substring(1);
 
-        // Mostrar sección seleccionada
         if(id === "inicio"){
             window.scrollTo({ top: 0, behavior: "smooth" });
         } else {
             const destino = document.getElementById(id);
-            destino.style.display = "block";
+            destino.classList.add("activa");
             destino.scrollIntoView({ behavior: "smooth" });
         }
     });
 });
 </script>
-
 </body>
 </html>
