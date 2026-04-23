@@ -321,8 +321,6 @@ img {
   transform: scale(1.03);
   background: #00c3ff;
 }
-    <style>
-
 </style>
 
 </head>
@@ -413,15 +411,11 @@ img {
 <!-- GALERIA --> 
     <section id="galeria" class="seccion">
   <h2>Galería</h2>
+  <div class="carpetas"> 
+  </div>
+  </section> <!-- cierre galeria -->
 
-  <div class="carpetas">
-
-    <!-- CARPETA 1 -->
-   <a href="#memoria" class="carpeta">
-  <img src="https://i.imgur.com/w1HJFM1.jpeg" alt="">
-  <p>Mes de la Memoria</p>
-</a>
-    <section id="memoria" class="seccion">
+<section id="memoria" class="seccion">
   <h2>Mes de la Memoria</h2>
 
   <div class="galeria">
@@ -437,8 +431,7 @@ img {
     <img src="https://i.imgur.com/0P4PezP.jpeg">
     <img src="https://i.imgur.com/xsYnLEl.jpeg">
   </div>
-</section>  
-  
+</section>
     
 <!-- REPOSITORIO -->    
 <section id="repositorio" class="seccion">
@@ -506,11 +499,8 @@ toggle.addEventListener("click", () => {
     menu.classList.toggle("active");
 });
 
-// Seleccionar secciones
+// Secciones
 const secciones = document.querySelectorAll(".seccion");
-
-// Ocultar todas menos inicio
-secciones.forEach(sec => sec.classList.remove("activa"));
 
 // Links del menú
 const links = document.querySelectorAll(".menu a");
@@ -519,10 +509,8 @@ links.forEach(link => {
     link.addEventListener("click", (e) => {
         e.preventDefault();
 
-        // Cerrar menú en celular
         menu.classList.remove("active");
 
-        // Ocultar todas
         secciones.forEach(sec => sec.classList.remove("activa"));
 
         const id = link.getAttribute("href").substring(1);
@@ -531,22 +519,20 @@ links.forEach(link => {
             window.scrollTo({ top: 0, behavior: "smooth" });
         } else {
             const destino = document.getElementById(id);
-            destino.classList.add("activa");
-            destino.scrollIntoView({ behavior: "smooth" });
+            if(destino){
+                destino.classList.add("activa");
+                destino.scrollIntoView({ behavior: "smooth" });
+            }
         }
     });
 });
-    if(id){
-  const destino = document.getElementById(id);
-  destino.classList.add("activa");
-}
-    <script>
+
+// LIGHTBOX
 const imagenes = document.querySelectorAll(".galeria img");
 const lightbox = document.getElementById("lightbox");
 const imgGrande = document.getElementById("img-grande");
 const cerrar = document.querySelector(".cerrar");
 
-// Abrir imagen
 imagenes.forEach(img => {
   img.addEventListener("click", () => {
     lightbox.style.display = "flex";
@@ -554,12 +540,10 @@ imagenes.forEach(img => {
   });
 });
 
-// Cerrar con X
 cerrar.addEventListener("click", () => {
   lightbox.style.display = "none";
 });
 
-// Cerrar haciendo clic afuera
 lightbox.addEventListener("click", (e) => {
   if(e.target !== imgGrande){
     lightbox.style.display = "none";
