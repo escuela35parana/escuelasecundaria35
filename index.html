@@ -102,20 +102,48 @@ h2 {
 }
 
 .carpetas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .carpeta {
-    padding: 30px;
-    background: #2c3e50;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    text-align: center;
+  display: block;
+  aspect-ratio: 1 / 1; /* 👈 hace el cuadrado */
+  background: #2c3e50;
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  transition: 0.3s;
 }
 
+.carpeta img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+}
+
+.carpeta p {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  background: rgba(0,0,0,0.6);
+  font-weight: 600;
+}
+
+.carpeta:hover {
+  transform: scale(1.05);
+}
+
+.carpeta:hover img {
+  opacity: 1;
+}
 .carpeta:hover { background: #00c3ff; }
 
 .btn-repo {
