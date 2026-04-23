@@ -389,22 +389,28 @@ img {
   <div class="carpetas">
 
     <!-- CARPETA 1 -->
-    <a href="#memoria" class="carpeta">
-      <img src="https://i.imgur.com/w1HJFM1.jpeg" alt="">
-        <img src="https://i.imgur.com/fgzroBo.jpeg" alt="">
-        <img src="https://i.imgur.com/dWNeWgM.jpeg" alt="">
-        <img src="https://i.imgur.com/Hg6qglh.jpeg" alt="">
-        <img src="https://i.imgur.com/fPlvaKZ.jpeg" alt="">
-        <img src="https://i.imgur.com/eCHj3eh.jpeg" alt="">
-        <img src="https://i.imgur.com/2B4kevS.jpeg" alt="">
-        <img src="https://i.imgur.com/dlMHwC4.jpeg" alt="">
-        <img src="https://i.imgur.com/A2wpvTG.jpeg" alt="">
-        <img src="https://i.imgur.com/0P4PezP.jpeg" alt="">
-        <img src="https://i.imgur.com/xsYnLEl.jpeg" alt="">
-        <p>Mes de la Memoria</p>
-    </a>
+   <a href="#memoria" class="carpeta">
+  <img src="https://i.imgur.com/w1HJFM1.jpeg" alt="">
+  <p>Mes de la Memoria</p>
+</a>
+    <section id="memoria" class="seccion">
+  <h2>Mes de la Memoria</h2>
+
+  <div class="galeria">
+    <img src="https://i.imgur.com/w1HJFM1.jpeg">
+    <img src="https://i.imgur.com/fgzroBo.jpeg">
+    <img src="https://i.imgur.com/dWNeWgM.jpeg">
+    <img src="https://i.imgur.com/Hg6qglh.jpeg">
+    <img src="https://i.imgur.com/fPlvaKZ.jpeg">
+    <img src="https://i.imgur.com/eCHj3eh.jpeg">
+    <img src="https://i.imgur.com/2B4kevS.jpeg">
+    <img src="https://i.imgur.com/dlMHwC4.jpeg">
+    <img src="https://i.imgur.com/A2wpvTG.jpeg">
+    <img src="https://i.imgur.com/0P4PezP.jpeg">
+    <img src="https://i.imgur.com/xsYnLEl.jpeg">
   </div>
-        </section>
+</section>  
+  
     
 <!-- REPOSITORIO -->    
 <section id="repositorio" class="seccion">
@@ -502,6 +508,10 @@ links.forEach(link => {
         }
     });
 });
+    if(id){
+  const destino = document.getElementById(id);
+  destino.classList.add("activa");
+}
 </script>
 </body>
 </html>
