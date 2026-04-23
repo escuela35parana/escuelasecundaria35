@@ -512,7 +512,7 @@ toggle.addEventListener("click", () => {
 const secciones = document.querySelectorAll(".seccion");
 
 // Links del menú
-const links = document.querySelectorAll(".menu a");
+const links = document.querySelectorAll(".menu a, .carpeta, a[href^='#']");
 
 links.forEach(link => {
     link.addEventListener("click", (e) => {
@@ -556,24 +556,7 @@ lightbox.addEventListener("click", (e) => {
     lightbox.style.display = "none";
   }
 });
-    // Carpetas de galería
-const carpetas = document.querySelectorAll(".carpeta");
-
-carpetas.forEach(carpeta => {
-  carpeta.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    const id = carpeta.getAttribute("href").substring(1);
-
-    secciones.forEach(sec => sec.classList.remove("activa"));
-
-    const destino = document.getElementById(id);
-    if(destino){
-      destino.classList.add("activa");
-      destino.scrollIntoView({ behavior: "smooth" });
-    }
-  });
-});
+    
     // Botón volver en galerías
 const volverLinks = document.querySelectorAll('a[href="#galeria"]');
 
