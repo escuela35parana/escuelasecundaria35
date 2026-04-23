@@ -523,13 +523,11 @@ links.forEach(link => {
         secciones.forEach(sec => sec.classList.remove("activa"));
 
         const id = link.getAttribute("href").substring(1);
+        const destino = document.getElementById(id);
 
-       else {
-            const destino = document.getElementById(id);
-            if(destino){
-                destino.classList.add("activa");
-                destino.scrollIntoView({ behavior: "smooth" });
-            }
+        if(destino){
+            destino.classList.add("activa");
+            destino.scrollIntoView({ behavior: "smooth" });
         }
     });
 });
@@ -557,20 +555,7 @@ lightbox.addEventListener("click", (e) => {
   }
 });
     
-    // Botón volver en galerías
-const volverLinks = document.querySelectorAll('a[href="#galeria"]');
-
-volverLinks.forEach(link => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    secciones.forEach(sec => sec.classList.remove("activa"));
-
-    const galeria = document.getElementById("galeria");
-    galeria.classList.add("activa");
-    galeria.scrollIntoView({ behavior: "smooth" });
-  });
-});
+  
 </script>
 
     <div id="lightbox" class="lightbox">
