@@ -574,13 +574,6 @@ carpetas.forEach(carpeta => {
     }
   });
 });
-</script>
-
-    <div id="lightbox" class="lightbox">
-  <span class="cerrar">&times;</span>
-  <img class="lightbox-img" id="img-grande">
-</div>
-
     // Botón volver en galerías
 const volverLinks = document.querySelectorAll('a[href="#galeria"]');
 
@@ -595,6 +588,14 @@ volverLinks.forEach(link => {
     galeria.scrollIntoView({ behavior: "smooth" });
   });
 });
+</script>
+
+    <div id="lightbox" class="lightbox">
+  <span class="cerrar">&times;</span>
+  <img class="lightbox-img" id="img-grande">
+</div>
+
+    
     
 </body>
 </html>
