@@ -102,29 +102,26 @@ h2 {
 }
 
 .carpetas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 300px));
-    justify-content: center; /* 👈 centra las carpetas */
-    gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .carpeta {
-  display: block;
-  aspect-ratio: 1 / 1; /* 👈 hace el cuadrado */
-  background: #2c3e50;
-  border-radius: 12px;
-  overflow: hidden;
-  text-decoration: none;
-  color: white;
   position: relative;
-  transition: 0.3s;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 12px;
+  text-decoration: none;
 }
 
 .carpeta img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.7;
+  transition: transform 0.3s ease;
 }
 
 .carpeta p {
@@ -132,21 +129,17 @@ h2 {
   bottom: 0;
   width: 100%;
   margin: 0;
-  padding: 10px;
-  text-align: center;
+  padding: 8px;
+  font-size: 14px;
   background: rgba(0,0,0,0.6);
-  font-weight: 600;
-}
-
-.carpeta:hover {
-  transform: scale(1.05);
+  color: white;
+  text-align: center;
 }
 
 .carpeta:hover img {
-  opacity: 1;
+  transform: scale(1.08);
 }
-.carpeta:hover { background: #00c3ff; }
-
+    
 .btn-repo {
     display: inline-block;
     padding: 12px 25px;
@@ -333,32 +326,6 @@ img {
   transform: scale(1.05);
 }
 
-    .carpeta {
-  display: block;
-  background: #2c3e50;
-  border-radius: 10px;
-  overflow: hidden;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s;
-}
-
-.carpeta img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.carpeta p {
-  padding: 10px;
-  margin: 0;
-  text-align: center;
-}
-
-.carpeta:hover {
-  transform: scale(1.03);
-  background: #00c3ff;
-}
 </style>
 
 </head>
@@ -451,14 +418,22 @@ img {
 <section id="galeria" class="seccion">
   <h2>Galería</h2>
 
- <div class="carpetas"> 
+    <div class="carpetas"> 
+
     <a href="#cumpleaños" class="carpeta">
-      <img src="https://i.imgur.com/MEkygwS.jpeg" alt="">
-      <p>Cumpleaños Quirós 2026 </p>
+      <img src="https://i.imgur.com/MEkygwS.jpeg">
+      <p>Cumpleaños Quirós 2026</p>
     </a>
+
+    <a href="#memoria" class="carpeta">
+      <img src="https://i.imgur.com/w1HJFM1.jpeg">
+      <p>Mes de la Memoria</p>
+    </a>
+
   </div>
 </section>
-<!-- CARPETA: Cumpleaños Quiros -->
+    
+ <!-- CARPETA: Cumpleaños Quiros -->
 <section id="cumpleaños" class="seccion">
   <h2>Cumpleaños Escuela</h2>
 
@@ -480,15 +455,7 @@ img {
   </div>
 </section>
     
- <div class="carpetas"> 
-    <a href="#memoria" class="carpeta">
-      <img src="https://i.imgur.com/w1HJFM1.jpeg" alt="">
-      <p>Mes de la Memoria</p>
-    </a>
-  </div>
-</section>
-    
-    <!-- CARPETA: MEMORIA -->
+     <!-- CARPETA: MEMORIA -->
 <section id="memoria" class="seccion">
   <h2>Mes de la Memoria</h2>
 
